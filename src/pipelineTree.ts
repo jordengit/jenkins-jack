@@ -197,7 +197,7 @@ export class PipelineTreeProvider implements vscode.TreeDataProvider<PipelineTre
 
         let parsed = await parseXmlString(xml);
         let root = parsed['flow-definition'];
-        let script = root.definition[0].script;
+        let script = root.definition[0].script.toString();
         if (undefined === script) {
             vscode.window.showInformationMessage(`Pipeline job "${item.label}" has no script to pull.`);
             return;
