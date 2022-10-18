@@ -582,7 +582,10 @@ export class PipelineJack extends JackBase {
         let folderName = path.parse(fullJobName ?? 'test').dir;
 
         let scriptPathResult = await vscode.window.showSaveDialog({
-            defaultUri: vscode.Uri.parse(`file:${jobName}`)
+            defaultUri: vscode.Uri.parse(`file:${jobName}`),
+            filters: {
+                'Scripts': ['groovy']
+            }
         });
         if (undefined === scriptPathResult) { return; }
 
