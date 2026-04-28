@@ -619,6 +619,7 @@ export class JenkinsService {
                         let content = text.split(/\r?\n/).filter((l: string) => !regex.test(l));
                         outputChannel.append(content.join('\n'));
                     } else {
+                        text = text.replace(/\x1b\[8m.*?\x1b\[0m/g, '');
                         outputChannel.append(text);
                     }
                 });
